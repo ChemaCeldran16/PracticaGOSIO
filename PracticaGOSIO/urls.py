@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+sys.path.append(os.path.join(BASE_DIR, 'AplicacionAgricola'))
+from views import index
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',index, name='index'),
 ]
